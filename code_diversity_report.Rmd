@@ -273,7 +273,7 @@ text(3, 1.6, "c")
 
 ### β diversity analyses
 #### Case 1 sample autumn 2004
-We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) since it was specifically developed for unbalanced samplings.
+We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009), using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) specifically developed for unbalanced samplings.
 * β TD
 ```{r}
 eqrao1TDbetas2<-EqRao(host1_s2, dis=NULL, structure = as.data.frame(h1data_s2$host.species, row.names= row.names(host1_s2)), formula="QE", option= "normed1",
@@ -347,7 +347,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s2, main=expression(paste("Case 1, autumn 2004, TD,
 Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (_Chelon auratus_, _Mugil cephalus_ and _Chelon ramada_). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 #### Case 1 sample autumn 2005
-We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) since it was specifically developed for unbalanced samplings.
+We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) since it is specifically developed for unbalanced samplings.
 * β TD
 ```{r}
 eqrao1TDbetas4<-EqRao(host1_s4, dis=NULL, structure = as.data.frame(h1data_s4$host.species, row.names=row.names(host1_s4)), formula="QE", option= "normed1",
@@ -415,8 +415,8 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s4, main=expression(paste("Case 1, autumn 2005, TD,
 Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (_Chelon auratus_, _Mugil cephalus_ and _Chelon ramada_). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 
-## Influence of two crossed factors on diversity
-To evaluate and disentangle the effect of crossed factors on diversity, we use the crossed-DPCoA (Pavoine et al., 2013, https://doi.org/10.1371/journal.pone.0054530). We analyse the effect of two crossed factors simultaneously: host species and season. The crossed-DPCoA is grounded on the DPCoA but it analyses the effect of two crossed factors at the same time. Thus, it distinguishes the proportional contribution of the sampling unit, each factor individually and the effect of the interaction of both factors on the diversity of the community.
+## Influence of two-crossed factors on diversity
+To evaluate and disentangle the effect of crossed factors on diversity, we use the crossed-DPCoA (Pavoine et al., 2013, https://doi.org/10.1371/journal.pone.0054530). We analyse the effect of two-crossed factors simultaneously: host species and season. The crossed-DPCoA is grounded on the DPCoA but it analyses the effect of two-crossed factors at the same time. Thus, it distinguishes the proportional contribution of the sampling unit, each factor individually and the effect of the interaction of both factors on the diversity of the community.
 
 ### Main effect A
 The crossed-DPCoA consists of three consecutive analyses. Following Pavoine et al.’s (2013) terminology, each parasite community is associated with a component of the factor A (hosts species) and a component of a factor B (season). The main version of the crossed-DPCoA plots in a DPCoA space the parasite species, the sampling units and the variables of the main factor A, without taking into account seasonal differences (factor B).
