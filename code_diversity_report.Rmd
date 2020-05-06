@@ -1,5 +1,5 @@
 ---
-title: "Code for reproducibility of: Assembly rules of helminth parasite communities in grey mullets: combining components of diversity"
+title: Code for reproducibility of "Assembly rules of helminth parasite communities in grey mullets: combining components of diversity"
 author: "Cristina Llopis-Belenguer, Sandrine Pavoine, Isabel Blasco-Costa, Juan Antonio Balbuena"
 output:
   html_document:
