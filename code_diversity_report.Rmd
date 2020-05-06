@@ -425,7 +425,7 @@ The crossed-DPCoA consists of three consecutive analyses. Following Pavoine et a
 ```{r}
 ab1main<- crossdpcoa_maineffect(host1, h1data$host.species, as.factor(h1data$year), dis =NULL, scannf = F)
 s.label(ab1main$l2) # Positions of the levels of factor A - hosts species - on its principal axes in the main TD space
-ab1main$eig[1:2]/sum(ab1main$eig) # Pertange of variation explaine by each axes: most of the variation is reflected by the first axis
+ab1main$eig[1:2]/sum(ab1main$eig) # Percetange of variation explained by each axes: most of the variation is reflected by the first axis
 (ab1main$div*100)/ab1main$div[5] # Percentage of diversity associated with each factor
 # ssw: diversity within communities or percentaje of diversity due to host individual factor
 # ssa: diversity related to factor A or host species;
@@ -438,14 +438,14 @@ ab1main$eig[1:2]/sum(ab1main$eig) # Pertange of variation explaine by each axes:
 ```{r}
 ab1mainFD<- crossdpcoa_maineffect(host1, h1data$host.species, as.factor(h1data$year), dis =traits1dist, scannf = F)
 s.label(ab1mainFD$l2) # Positions of the levels of factor A - hosts species - on its principal axes in the FD space
-ab1mainFD$eig[1:2]/sum(ab1mainFD$eig) # Pertange of variation explaine by each axes: most of the variation is reflected by the first axis
+ab1mainFD$eig[1:2]/sum(ab1mainFD$eig) # Percentange of variation explained by each axes: most of the variation is reflected by the first axis
 (ab1mainFD$div*100)/ab1mainFD$div[5] # Percentage of diversity associated with each factor
 ```
 * crossed-DPCoA PPD
 ```{r}
 ab1mainPD<- crossdpcoa_maineffect(host1, h1data$host.species, as.factor(h1data$year), dis =phylo1dist, scannf = F)
 s.label(ab1mainFD$l2) # Positions of the levels of factor A - hosts species - on its principal axes in the FD space
-ab1mainPD$eig[1:2]/sum(ab1mainPD$eig) # Pertange of variation explaine by each axes
+ab1mainPD$eig[1:2]/sum(ab1mainPD$eig) # Percentange of variation explained by each axes
 (ab1mainPD$div*100)/ab1mainPD$div[5] # Percentage of diversity associated with each factor
 ```
 
