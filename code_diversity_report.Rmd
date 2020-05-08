@@ -1,5 +1,5 @@
 ---
-title: "Code for reproducibility of: Assembly rules of helminth parasite communities in grey mullets: combining components of diversity"
+title: Code for reproducibility of "Assembly rules of helminth parasite communities in grey mullets: combining components of diversity"
 author: "Cristina Llopis-Belenguer, Sandrine Pavoine, Isabel Blasco-Costa, Juan Antonio Balbuena"
 output:
   html_document:
@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, fig.width = 15, fig.align = 
 ```
 
 # Libraries
-These are the libraries needed to perform the analyses.
+Load the libraries required.
 ```{r}
 library(vegan)
 library(ade4)
@@ -29,7 +29,7 @@ setwd("C:/Users/Cristina/Documents/diversity_code")
 
 ## Databases Case 1
 ### Host-parasite abundance data
-We upload the host-parasite abundance matrix. We subtset this matrix to perform the analysis of the Case study 1 (see main text). Case 1 includes parasite species of _Chelon auratus_, _Chelon ramada_ and _Mugil cephalus_ from Santa Pola Sea (SPS) and autumn 2004 (2) an autumn 2005 (4).
+We upload the host-parasite abundance matrix. We subtset this matrix to perform the analysis of the Case study 1 (see main text). Case 1 includes parasite species of _Chelon auratus_, _Chelon ramada_ and _Mugil cephalus_ from Santa Pola Sea (SPS) autumn 2004 (2) and autumn 2005 (4).
 ```{r}
 host<- read.delim("diversity_data.txt", row.names = 1)
 host1<- host[host$case<= 1,]
@@ -40,7 +40,7 @@ host1<-host1[,apply(host1, 2, sum)>0] # remove parasite species that are not pre
 ```
 
 ### Parasite functional trait data
-We upload the frunctional trait information of all the parasite species in the sample. Then, we log-transformed numerical traits.
+We upload the functional trait information of all the parasite species in the sample. Then, we log-transformed numerical traits.
 ```{r}
 traits<- read.delim("traits_total.txt", row.names = 1)
 traits$Esiz<-log(traits$Esiz+1)
@@ -53,19 +53,19 @@ traits1<- traits[intersect(rownames(traits), colnames(host1)),] # functional tra
 ```
 To give the same weight to all traits, we transform each column into a single matrix. Otherwise, a category of a categorical functional trait (e.g. attachment sucker) would have the same weight as a numerical functional trait (e.g. egg size).
 ```{r}
-n_atta1<-data.frame(atta=traits1[,1], row.names = row.names(traits1)) # Give the same weight to all the traits
+n_atta1<-data.frame(atta=traits1[,1], row.names = row.names(traits1)) # Give the same weight to all traits
 o_esiz1<-data.frame(esiz=traits1[,2], row.names = row.names(traits1))
 o_enum1<-data.frame(enum=traits1[,3], row.names = row.names(traits1))
 o_bmas1<-data.frame(bmas=traits1[,4], row.names = row.names(traits1))
 n_lcyc1<-data.frame(lcyc=traits1[,5], row.names = row.names(traits1))
 ```
-Then, we must create a ktab object. It is a list of objects, each belonging to the class data.frame (see Supplementary Material in Pavoine et al., 2009, https://doi.org/10.1111/j.1600-0706.2008.16668.x). We calculate the Gower distance between parasite species in terms of functional traits. Notice that the type of functional trait must be especified (i.e. O: ordinal; N: nominal) Finally, following Pavoine et al. (2009), we transform the Gower distance into Euclidean distance and bound this matrix between 0 and 1.
+Then, we have to create a ktab object. It is a list of objects, each belonging to the class data.frame (see Supplementary Material in Pavoine et al., 2009, https://doi.org/10.1111/j.1600-0706.2008.16668.x). We calculate Gower distances between parasite species in terms of functional traits. Notice that the type of functional trait must be especified (i.e. O: ordinal; N: nominal) Finally, following Pavoine et al. (2009), we transform the Gower distances into Euclidean distances and rescale them between 0 and 1.
 ```{r}
 ktab1<-ktab.list.df(list(o_esiz1, o_enum1, o_bmas1, n_atta1, n_lcyc1)) 
 traits1dist<- dist.ktab(ktab1, c("O", "O", "O", "N", "N")) # Gower distance -> matrix of functional distances
-traits1dist<-lingoes(traits1dist) # transform the Gower distance into Euclidean distance
+traits1dist<-lingoes(traits1dist) # transform Gower distances into Euclidean ones
 traits1dist<-traits1dist/max(traits1dist) # [0,1]
-#is.euclid(traits1dist) # this function allows to double-check that the matrix of distance is Euclidean
+#is.euclid(traits1dist) # this function double-checks that the distance matrix is Euclidean
 ```
 ### Parasite proxy of phylogeny
 We upload the phylogenetic-like information of all the parasite species in the sample.
@@ -77,7 +77,7 @@ We subset the parasite species present in Case 1.
 phylo1<- phylo[intersect(rownames(phylo), colnames(host1)),] # phylogenetic-like information of parasite species present in Case 1
 phylo1dist<-taxa2dist(phylo1, varstep=TRUE) # matrix of phylogenetic-like distances
 phylo1dist<-phylo1dist/max(phylo1dist) #[0,1]
-#is.euclid(phylo1dist) # this function allows to double-check that the matrix of distance is Euclidean
+#is.euclid(phylo1dist) # this function double-checks that the distance matrix is Euclidean
 ```
 ## Databases Case 1 sample autumn 2004
 ### Host-parasite abundance data
@@ -89,7 +89,7 @@ host1_s2<-host1_s2[,apply(host1_s2, 2, sum)>0] # remove parasite species that ar
 ### Parasite functional trait data
 ```{r}
 traits1_s2<- traits1[intersect(rownames(traits1), colnames(host1_s2)),] # functional traits of species present in Case 1 autumn 2004
-n_atta1s2<-data.frame(atta=traits1_s2[,1], row.names = row.names(traits1_s2)) # give the same weight to all the traits
+n_atta1s2<-data.frame(atta=traits1_s2[,1], row.names = row.names(traits1_s2)) # give the same weight to all traits
 o_esiz1s2<-data.frame(esiz=traits1_s2[,2], row.names = row.names(traits1_s2))
 o_enum1s2<-data.frame(enum=traits1_s2[,3], row.names = row.names(traits1_s2))
 o_bmas1s2<-data.frame(bmas=traits1_s2[,4], row.names = row.names(traits1_s2))
@@ -118,7 +118,7 @@ host1_s4<-host1_s4[,apply(host1_s4, 2, sum)>0] # remove parasite species that ar
 ### Parasite functional trait data
 ```{r}
 traits1_s4<- traits1[intersect(rownames(traits1), colnames(host1_s4)),] # functional traits of species present in Case 1 autumn 2005
-n_atta1s4<-data.frame(atta=traits1_s4[,1], row.names = row.names(traits1_s4)) # give the same weight to all the traits
+n_atta1s4<-data.frame(atta=traits1_s4[,1], row.names = row.names(traits1_s4)) # give the same weight to all traits
 o_esiz1s4<-data.frame(esiz=traits1_s4[,2], row.names = row.names(traits1_s4))
 o_enum1s4<-data.frame(enum=traits1_s4[,3], row.names = row.names(traits1_s4))
 o_bmas1s4<-data.frame(bmas=traits1_s4[,4], row.names = row.names(traits1_s4))
@@ -142,7 +142,7 @@ phylo1dist_s4<-phylo1dist_s4/max(phylo1dist_s4)
 # Diversity analyses
 ## Influence of one factor on diversity
 ### α diversity analyses
-The dpcoa function is a combined version of the Rao index of diversity and the Weighted Principal Coordinate Analysis. DPCoA allows comparing the partitioning of diversity at different levels of an organisational scale and the different facets of diversity (Pavoine et al., 2004, https://doi.org/10.1016/j.jtbi.2004.02.014). When the argument dis is set as NULL, the funcion calculates de Taxonomic Diversity of the sample. In contrats, when a matrix of euclidean distances is given it calculates either the Functional Diversity (FD) or the Phylogenetic Diversity (PD) of the parasite community.
+The dpcoa function is a combined version of the Rao index of diversity and the Weighted Principal Coordinate Analysis. DPCoA allows comparing the partitioning of diversity at different levels of an organisational scale and the different facets of diversity (Pavoine et al., 2004, https://doi.org/10.1016/j.jtbi.2004.02.014). When the argument dis is set as NULL, the funcion calculates de Taxonomic Diversity of the sample. In contrast, when a matrix of euclidean distances is given, it calculates either the Functional Diversity (FD) or the Phylogenetic Diversity (PD) of the parasite community.
 
 #### Case 1 sample autumn 2004
 ```{r}
@@ -159,8 +159,8 @@ alphaTD1_s2<-1/(1-dpcoa1TD_s2$RaoDiv) # Ricotta and Szeild 2009
 alphaFD1_s2<-1/(1-dpcoa1FD_s2$RaoDiv) # Ricotta and Szeild 2009
 alphaPD1_s2<-1/(1-dpcoa1PD_s2$RaoDiv) # Ricotta and Szeild 2009
 ```
-##### Satistical analyses
-The function lm.rrpp of package RRPP (Collyer and Adams 2018a, https://cran.r-project.org/web/packages/RRPP/index.html) performs a linear model by residual randomisation and provides empirical sampling distributions for further ANOVAs. Following Collyer and Adams (2018b, https://doi.org/10.1111/2041-210X.13029), univariate α values were log-transformed. Then, we performed ANOVAs (type I of sums of squares) using random distributions of the F-statistics (Collyer and Adams, 2018b) for TD, FD and PPD, independently. When differences between samples from different host species or localities were significant, we ran posteriori pairwise comparisons of α TD, FD and PPD between host species or localities using function pairwise in RRPP.
+##### Statistical analyses
+Function lm.rrpp of package RRPP (Collyer and Adams 2018a, https://cran.r-project.org/web/packages/RRPP/index.html) performs a linear model by residual randomisation and provides empirical sampling distributions for further ANOVAs. Following Collyer and Adams (2018b, https://doi.org/10.1111/2041-210X.13029), univariate α values were log-transformed. Then, we performed ANOVAs (type I of sums of squares) using random distributions of the F-statistics (Collyer and Adams, 2018b) for TD, FD and PPD, independently. When differences between samples from different host species or localities were significant, we ran a posteriori pairwise comparisons of α TD, FD and PPD between host species or localities using function pairwise in RRPP.
 * α TD
 ```{r}
 alphaTD1_s2_st<-lm.rrpp(log(alphaTD1_s2)~h1data_s2$host.species, SS.type = "I", print.progress = F)
@@ -243,10 +243,11 @@ text(1, 1.6, "a b")
 text(2, 1.6, "b")
 text(3, 1.6, "a")
 
+splabels <- c(expression(italic("Chelon auratus"), italic("Mugil cephalus"), italic("Chelon ramada")))
 boxplot(alphaTD1_s4~h1data_s4$struc, col="grey",
         xlab="host species", ylab = expression(paste(alpha, " diversity autumn 2005")),
         main=NULL, frame.plot = FALSE, ylim=c(min(alphaTD1_s4), max(alphaTD1_s4)+0.5),
-        names= c("Chelon auratus", "Mugil cephalus", "Chelon ramada"))
+        names= splabels
 text(1, 6.6, "a")
 text(2, 6.6, "a")
 text(3, 6.6, "b")
@@ -254,7 +255,7 @@ text(3, 6.6, "b")
 boxplot(alphaFD1_s4~h1data_s4$struc, col="grey",
         xlab="host species", ylab = NULL,
         main = NULL, frame.plot = FALSE, ylim=c(min(alphaFD1_s4), max(alphaFD1_s4)+0.15),
-        names= c("Chelon auratus", "Mugil cephalus", "Chelon ramada"))
+        names= splabels
 text(1, 1.4, "a")
 text(2, 1.4, "a")
 text(3, 1.4, "b")
@@ -263,7 +264,7 @@ text(3, 1.4, "b")
 boxplot(alphaPD1_s4~h1data_s4$struc, col="grey",
         xlab="host species", ylab = NULL,
         main =NULL, frame.plot = FALSE, ylim=c(min(alphaPD1_s4), max(alphaPD1_s4)+0.15),
-        names= c("Chelon auratus", "Mugil cephalus", "Chelon ramada"))
+        names= splabels
 text(1, 1.6, "a")
 text(2, 1.6, "b")
 text(3, 1.6, "c")
@@ -272,7 +273,7 @@ text(3, 1.6, "c")
 
 ### β diversity analyses
 #### Case 1 sample autumn 2004
-We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) since it was specifically developed for unbalanced samplings.
+We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009), using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) specifically developed for unbalanced samplings.
 * β TD
 ```{r}
 eqrao1TDbetas2<-EqRao(host1_s2, dis=NULL, structure = as.data.frame(h1data_s2$host.species, row.names= row.names(host1_s2)), formula="QE", option= "normed1",
@@ -346,7 +347,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s2, main=expression(paste("Case 1, autumn 2004, TD,
 Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (_Chelon auratus_, _Mugil cephalus_ and _Chelon ramada_). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 #### Case 1 sample autumn 2005
-We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) since it was specifically developed for unbalanced samplings.
+We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, https://doi.org/10.1111/2041-210X.12591) since it is specifically developed for unbalanced samplings.
 * β TD
 ```{r}
 eqrao1TDbetas4<-EqRao(host1_s4, dis=NULL, structure = as.data.frame(h1data_s4$host.species, row.names=row.names(host1_s4)), formula="QE", option= "normed1",
@@ -414,8 +415,8 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s4, main=expression(paste("Case 1, autumn 2005, TD,
 Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (_Chelon auratus_, _Mugil cephalus_ and _Chelon ramada_). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 
-## Influence of two crossed factors on diversity
-To evaluate and disentangle the effect of crossed factors on diversity, we use the crossed-DPCoA (Pavoine et al., 2013, https://doi.org/10.1371/journal.pone.0054530). We analyse the effect of two crossed factors simultaneously: host species and season. The crossed-DPCoA is grounded on the DPCoA but it analyses the effect of two crossed factors at the same time. Thus, it distinguishes the proportional contribution of the sampling unit, each factor individually and the effect of the interaction of both factors on the diversity of the community.
+## Influence of two-crossed factors on diversity
+To evaluate and disentangle the effect of crossed factors on diversity, we use the crossed-DPCoA (Pavoine et al., 2013, https://doi.org/10.1371/journal.pone.0054530). We analyse the effect of two-crossed factors simultaneously: host species and season. The crossed-DPCoA is grounded on the DPCoA but it analyses the effect of two-crossed factors at the same time. Thus, it distinguishes the proportional contribution of the sampling unit, each factor individually and the effect of the interaction of both factors on the diversity of the community.
 
 ### Main effect A
 The crossed-DPCoA consists of three consecutive analyses. Following Pavoine et al.’s (2013) terminology, each parasite community is associated with a component of the factor A (hosts species) and a component of a factor B (season). The main version of the crossed-DPCoA plots in a DPCoA space the parasite species, the sampling units and the variables of the main factor A, without taking into account seasonal differences (factor B).
@@ -424,7 +425,7 @@ The crossed-DPCoA consists of three consecutive analyses. Following Pavoine et a
 ```{r}
 ab1main<- crossdpcoa_maineffect(host1, h1data$host.species, as.factor(h1data$year), dis =NULL, scannf = F)
 s.label(ab1main$l2) # Positions of the levels of factor A - hosts species - on its principal axes in the main TD space
-ab1main$eig[1:2]/sum(ab1main$eig) # Pertange of variation explaine by each axes: most of the variation is reflected by the first axis
+ab1main$eig[1:2]/sum(ab1main$eig) # Percetange of variation explained by each axes: most of the variation is reflected by the first axis
 (ab1main$div*100)/ab1main$div[5] # Percentage of diversity associated with each factor
 # ssw: diversity within communities or percentaje of diversity due to host individual factor
 # ssa: diversity related to factor A or host species;
@@ -437,14 +438,14 @@ ab1main$eig[1:2]/sum(ab1main$eig) # Pertange of variation explaine by each axes:
 ```{r}
 ab1mainFD<- crossdpcoa_maineffect(host1, h1data$host.species, as.factor(h1data$year), dis =traits1dist, scannf = F)
 s.label(ab1mainFD$l2) # Positions of the levels of factor A - hosts species - on its principal axes in the FD space
-ab1mainFD$eig[1:2]/sum(ab1mainFD$eig) # Pertange of variation explaine by each axes: most of the variation is reflected by the first axis
+ab1mainFD$eig[1:2]/sum(ab1mainFD$eig) # Percentange of variation explained by each axes: most of the variation is reflected by the first axis
 (ab1mainFD$div*100)/ab1mainFD$div[5] # Percentage of diversity associated with each factor
 ```
 * crossed-DPCoA PPD
 ```{r}
 ab1mainPD<- crossdpcoa_maineffect(host1, h1data$host.species, as.factor(h1data$year), dis =phylo1dist, scannf = F)
 s.label(ab1mainFD$l2) # Positions of the levels of factor A - hosts species - on its principal axes in the FD space
-ab1mainPD$eig[1:2]/sum(ab1mainPD$eig) # Pertange of variation explaine by each axes
+ab1mainPD$eig[1:2]/sum(ab1mainPD$eig) # Percentange of variation explained by each axes
 (ab1mainPD$div*100)/ab1mainPD$div[5] # Percentage of diversity associated with each factor
 ```
 
