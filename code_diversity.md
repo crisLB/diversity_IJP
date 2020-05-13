@@ -200,7 +200,7 @@ Influence of one factor on diversity
 
 ### α diversity analyses
 
-The dpcoa function is a combined version of the Rao index of diversity and the Weighted Principal Coordinate Analysis. DPCoA allows comparing the partitioning of diversity at different levels of an organisational scale and the different facets of diversity (Pavoine et al., 2004, <https://doi.org/10.1016/j.jtbi.2004.02.014>). When the argument dis is set as NULL, the funcion calculates de Taxonomic Diversity (TD) of the sample. In contrast, when a matrix of euclidean distances is given, it calculates either the Functional Diversity (FD) or the Phylogenetic Diversity (PD, or a Proxy of the Phylogenetic Diversity - PPD) of the parasite community.
+The dpcoa function is a combined version of the Rao index of diversity and the Weighted Principal Coordinate Analysis. DPCoA allows comparing the partitioning of diversity at different levels of an organisational scale and the different facets of diversity (Pavoine et al., 2004, <https://doi.org/10.1016/j.jtbi.2004.02.014>). When the argument dis is set as NULL, the funcion calculates the Taxonomic Diversity (TD) of the sample. In contrast, when a matrix of euclidean distances is given, it calculates either the Functional Diversity (FD) or the Phylogenetic Diversity (PD, or a Proxy of the Phylogenetic Diversity - PPD) of the parasite community.
 
 #### Case 1 sample autumn 2004
 
