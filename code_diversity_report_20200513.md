@@ -20,7 +20,7 @@ Set a working directory
 This is an optional step. Researchers could be interested in saving data and results in the same folder, the working directory. If data is stored in the working directory they will call data everytime with the name of the file and it will not be necessary to write the path to a file anymore.
 
 ``` r
-setwd("C:/Users/Cristina/Documents/diversity_code")
+setwd("path_to_your_directory")
 ```
 
 Databases Case 1
@@ -1208,7 +1208,7 @@ s.label(ab1mainFD$l2)
 ```
 
 <figure>
-<img src="<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_PPD.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_PPD.png">
 <figcaption>
   Figure 6. To view the position of host species in the PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
@@ -1232,7 +1232,7 @@ ab1mainPD$eig[1:2]/sum(ab1mainPD$eig)
 
 ### crossed-DPCoA version 1
 
-The first version of the crossed-DPCoA removes the amount of diversity among sampling units due to the sole effect of factor B, but retains combined effects of factors A and B (i.e. the interaction between factors A and B). This first version should always be performed to confirm that the two factors are not independent, otherwise versions 1 and 2 of the crossed-DPCoA will produce the same results. This can be done by visually comparing ellipses plots generated from version 1 and version 2.
+The first version of the crossed-DPCoA removes the amount of diversity among sampling units due to the sole effect of factor B, but retains combined effects of factors A and B (i.e. the interaction between factors A and B). This first version should always be performed to confirm that the two factors are not independent, otherwise versions 1 and 2 of the crossed-DPCoA will produce the same results. This can be done by visually comparing ellipse plots generated from version 1 and version 2.
 
 -   crossed-DPCoA TD
 
@@ -1296,7 +1296,9 @@ s.class(a1v1PD$l3, h1data$host.species,
 
 ### crossed-DPCoA version 2
 
-Finally, the second version of the crossed-DPCoA eliminates any influence of the factor B on the factor A (including the interaction term). Thus, it provides diversity exclusively under the light of the main crossed-factor, factor A (host species). \* crossed-DPCoA TD
+Finally, the second version of the crossed-DPCoA eliminates any influence of the factor B on the factor A (including the interaction term). Thus, it provides diversity exclusively under the light of the main crossed-factor, factor A (host species).
+
+-   crossed-DPCoATD
 
 ``` r
 a1v2 <- crossdpcoa_version2(host1, h1data$host.species, as.factor(h1data$year),
