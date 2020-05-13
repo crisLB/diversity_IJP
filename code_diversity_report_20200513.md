@@ -17,7 +17,7 @@ Data
 Set a working directory
 -----------------------
 
-This is an optional step. Researchers could be interested in saving data and results in the same folder, the working directory. If data is stored in the working directory they will call data everytime with the name of the file and it will not be necssary to write the path to a file anymore.
+This is an optional step. Researchers could be interested in saving data and results in the same folder, the working directory. If data is stored in the working directory they will call data everytime with the name of the file and it will not be necessary to write the path to a file anymore.
 
 ``` r
 setwd("C:/Users/Cristina/Documents/diversity_code")
@@ -73,7 +73,7 @@ q_bmas1<-data.frame(bmas=traits1[,4], row.names = row.names(traits1))
 n_lcyc1<-data.frame(lcyc=traits1[,5], row.names = row.names(traits1))
 ```
 
-Then, we have to create a ktab object. It is a list of objects, each belonging to the class data.frame (see Supplementary Material in Pavoine et al., 2009, <https://doi.org/10.1111/j.1600-0706.2008.16668.x>). We calculate Gower distances between parasite species in terms of functional traits. Notice that the type of functional trait must be especified (i.e. O: ordinal; N: nominal) Finally, following Pavoine et al. (2009), we transform the Gower distances into Euclidean distances and rescale them between 0 and 1.
+Then, we have to create a ktab object. It is a list of objects, each belonging to the class data.frame (see Supplementary Material in Pavoine et al., 2009, <https://doi.org/10.1111/j.1600-0706.2008.16668.x>). We calculate Gower distances between parasite species in terms of functional traits. Notice that the type of functional trait must be especified (i.e. Q: ordinal; N: nominal). Finally, following Pavoine et al. (2009), we transform the Gower distances into Euclidean distances and rescale them between 0 and 1.
 
 ``` r
 ktab1<-ktab.list.df(list(q_esiz1, q_enum1, q_bmas1, n_atta1, n_lcyc1))
@@ -200,7 +200,7 @@ Influence of one factor on diversity
 
 ### α diversity analyses
 
-The dpcoa function is a combined version of the Rao index of diversity and the Weighted Principal Coordinate Analysis. DPCoA allows comparing the partitioning of diversity at different levels of an organisational scale and the different facets of diversity (Pavoine et al., 2004, <https://doi.org/10.1016/j.jtbi.2004.02.014>). When the argument dis is set as NULL, the funcion calculates de Taxonomic Diversity of the sample. In contrast, when a matrix of euclidean distances is given, it calculates either the Functional Diversity (FD) or the Phylogenetic Diversity (PD) of the parasite community.
+The dpcoa function is a combined version of the Rao index of diversity and the Weighted Principal Coordinate Analysis. DPCoA allows comparing the partitioning of diversity at different levels of an organisational scale and the different facets of diversity (Pavoine et al., 2004, <https://doi.org/10.1016/j.jtbi.2004.02.014>). When the argument dis is set as NULL, the funcion calculates de Taxonomic Diversity (TD) of the sample. In contrast, when a matrix of euclidean distances is given, it calculates either the Functional Diversity (FD) or the Phylogenetic Diversity (PD, or a Proxy of the Phylogenetic Diversity - PPD) of the parasite community.
 
 #### Case 1 sample autumn 2004
 
@@ -223,7 +223,10 @@ alphaPD1_s2<-1/(1-dpcoa1PD_s2$RaoDiv) # Ricotta and Szeild 2009
 
 ##### Statistical analyses
 
-Function lm.rrpp of package RRPP (Collyer and Adams 2018a, <https://cran.r-project.org/web/packages/RRPP/index.html>) performs a linear model by residual randomisation and provides empirical sampling distributions for further ANOVAs. Following Collyer and Adams (2018b, <https://doi.org/10.1111/2041-210X.13029>), univariate α values were log-transformed. Then, we performed ANOVAs (type I of sums of squares) using random distributions of the F-statistics (Collyer and Adams, 2018b) for TD, FD and PPD, independently. When differences between samples from different host species or localities were significant, we ran a posteriori pairwise comparisons of α TD, FD and PPD between host species or localities using function pairwise in RRPP. \* α TD
+Function lm.rrpp of package RRPP (Collyer and Adams 2018a, <https://cran.r-project.org/web/packages/RRPP/index.html>) performs a linear model by residual randomisation and provides empirical sampling distributions for further ANOVAs. Following Collyer and Adams (2018b, <https://doi.org/10.1111/2041-210X.13029>), univariate α values were log-transformed. Then, we performed ANOVAs (type I of sums of squares) using random distributions of the F-statistics (Collyer and Adams, 2018b) for TD, FD and PPD, independently. When differences between samples from different host species or localities were significant, we ran a posteriori pairwise comparisons of α TD, FD and PPD between host species or localities using function pairwise in RRPP. 
+
+
+-   α TD
 
 ``` r
 alphaTD1_s2_st<-lm.rrpp(log(alphaTD1_s2)~h1data_s2$host.species, SS.type = "I",
@@ -271,7 +274,7 @@ anova(alphaFD1_s2_st, effect.type = "F")
     ## Call: lm.rrpp(f1 = log(alphaFD1_s2) ~ h1data_s2$host.species, SS.type = "I",  
     ##     print.progress = F)
 
--   α PD
+-   α PPD
 
 ``` r
 alphaPD1_s2_st<-lm.rrpp(log(alphaPD1_s2)~h1data_s2$host.species, SS.type = "I",
@@ -494,7 +497,7 @@ summary(alphaFD1_s4_stpairwise, confidence = 0.95, test.type = "dist",
     ## Cr 0.002 1.000 0.004
     ## Mc 0.998 0.004 1.000
 
--   α PD
+-   α PPD
 
 ``` r
 alphaPD1_s4_st<-lm.rrpp(log(alphaPD1_s4)~h1data_s4$host.species, SS.type = "I",
@@ -561,6 +564,62 @@ summary(alphaPD1_s4_stpairwise, confidence = 0.95, test.type = "dist",
     ## Cr 0.005 1.000 0.001
     ## Mc 0.001 0.001 1.000
 
+
+
+```{r}
+par (mfrow = c(2,3), cex.axis=0.8)
+boxplot(alphaTD1_s2~h1data_s2$struc, col="grey", xlab=NULL,
+        ylab = expression(paste(alpha, " diversity autumn 2004")),
+        main="Taxonomic", frame.plot = FALSE, ylim=c(min(alphaTD1_s2),
+        max(alphaTD1_s2)+0.3), xaxt='n')
+text(1, 4.3, "a")
+text(2, 4.3, "a")
+text(3, 4.3, "a")
+
+boxplot(alphaFD1_s2~h1data_s2$struc, col="grey", xlab=NULL,
+        ylab = NULL,
+        main="Functional", frame.plot = FALSE, ylim=c(min(alphaFD1_s2),
+        max(alphaFD1_s2)+0.1), xaxt='n')
+text(1, 1.4, "a")
+text(2, 1.4, "a")
+text(3, 1.4, "a")
+
+boxplot(alphaPD1_s2~h1data_s2$struc, col="grey", xlab=NULL,
+        ylab = NULL,
+        main="Phylogenetic Proxy", frame.plot = FALSE, ylim=c(min(alphaPD1_s2),
+        max(alphaPD1_s2)+0.1), xaxt='n')
+text(1, 1.6, "a b")
+text(2, 1.6, "b")
+text(3, 1.6, "a")
+
+splabels <- c(expression(italic("Chelon auratus"), italic("Mugil cephalus"), italic("Chelon ramada")))
+
+boxplot(alphaTD1_s4~h1data_s4$struc, col="grey", xlab="host species",
+        ylab = expression(paste(alpha, " diversity autumn 2005")),
+        main=NULL, frame.plot = FALSE, ylim=c(min(alphaTD1_s4),
+        max(alphaTD1_s4)+0.5), names= splabels)
+text(1, 6.6, "a")
+text(2, 6.6, "a")
+text(3, 6.6, "b")
+
+boxplot(alphaFD1_s4~h1data_s4$struc, col="grey", xlab="host species",
+        ylab = NULL,
+        main = NULL, frame.plot = FALSE, ylim=c(min(alphaFD1_s4),
+        max(alphaFD1_s4)+0.15), names= splabels)
+text(1, 1.4, "a")
+text(2, 1.4, "a")
+text(3, 1.4, "b")
+
+boxplot(alphaPD1_s4~h1data_s4$struc, col="grey", xlab="host species",
+        ylab = NULL,
+        main =NULL, frame.plot = FALSE, ylim=c(min(alphaPD1_s4),
+        max(alphaPD1_s4)+0.15), names= splabels)
+text(1, 1.6, "a")
+text(2, 1.6, "b")
+text(3, 1.6, "c")
+```
+
+
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/Fig1.png">
 <figcaption>
@@ -625,7 +684,9 @@ eqrao1FDbetas2
 
 We compared each of the TD, FD and PPD β1 and β2 diversities with 999 randomly simulated β1 and β2 values in order to establish whether the observed values significantly differ from those randomly simulated (p &lt; 0.05).
 
-When significant, we compared observed and simulated results to determine whether the observed β1 or β2 were greater or lower than expected at random. This allows determining whether parasite communities from fish of the same species (β1) or of different fish species (β2) are more similar (the observed value is lower than simulated values) or more dissimilar (the observed value is greater than simulated values) to each other than expected by chance. Finally, we used the standardised β1 and β2 given by EqRao function (observed β – mean of randomly simulated βs/ standard deviation of randomly simulated βs) to infer if the parasite species, traits or the phylogenetic proxy are overdispersed (negative standardised β) or clustered (positive standardised β) (Head et al., 2018, <https://doi.org/10.1002/ece3.3969>) within a level of a factor (β1) or between levels of a factor (β2). \* β TD
+When significant, we compared observed and simulated results to determine whether the observed β1 or β2 were greater or lower than expected at random. This allows determining whether parasite communities from fish of the same species (β1) or of different fish species (β2) are more similar (the observed value is lower than simulated values) or more dissimilar (the observed value is greater than simulated values) to each other than expected by chance. Finally, we used the standardised β1 and β2 given by EqRao function (observed β – mean of randomly simulated βs/ standard deviation of randomly simulated βs) to infer if the parasite species, traits or the phylogenetic proxy are overdispersed (negative standardised β) or clustered (positive standardised β) (Head et al., 2018, <https://doi.org/10.1002/ece3.3969>) within a level of a factor (β1) or between levels of a factor (β2).
+
+-   β TD
 
 ``` r
 # This is the permutation test of β1. We obtain the stadandardised observed
@@ -696,7 +757,8 @@ eqrao1FDbeta1rt_s2 <- rtestEqRao(host1_s2, traits1dist_s2,
                                  option="normed1", alter="two-sided",
                                  wopt = "speciesab")
 eqrao1FDbeta2rt_s2 <- rtestEqRao(host1_s2, traits1dist_s2,
-                                 structure=as.data.frame(h1data_s2$host.species, row.names=row.names(host1_s2)),  
+                                 structure=as.data.frame(h1data_s2$host.species,
+                                            row.names=row.names(host1_s2)),  
                                  formula="QE", level=2, nrep=999,
                                  option="normed1", alter="two-sided",
                                  wopt="speciesab")
@@ -810,14 +872,16 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s2,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/Fig2.png">
 <figcaption>
-  Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (*Chelon auratus*, *Mugil cephalus* and *Chelon ramada*). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
+  Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (Chelon auratus, Mugil cephalus and Chelon ramada). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 </figcaption>
 </figure>
 
 
 #### Case 1 sample autumn 2005
 
-We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, <https://doi.org/10.1111/2041-210X.12591>) since it is specifically developed for unbalanced samplings. \* β TD
+We calculate β1 and β2 diversities under the equivalent number approach (Ricotta and Szeidl, 2009) using the third proposition of the Rao index of diversity in Pavoine et al. (2016, <https://doi.org/10.1111/2041-210X.12591>) since it is specifically developed for unbalanced samplings.
+
+-   β TD
 
 ``` r
 eqrao1TDbetas4<-EqRao(host1_s4, dis=NULL,
@@ -1036,7 +1100,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s4,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/Fig3.png">
 <figcaption>
-  Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (*Chelon auratus*, *Mugil cephalus* and *Chelon ramada*). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
+  Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (Chelon auratus, Mugil cephalus and Chelon ramada). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 </figcaption>
 </figure>
 
@@ -1063,7 +1127,7 @@ s.label(ab1main$l2)
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_TD.png">
 <figcaption>
-  Figure 4. To view the position of host species in the TD space. Ca: *Chelon auratus*; Mc: _Mugil cephalus_; Cr: _Chelon ramada_ .
+  Figure 4. To view the position of host species in the TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
 
@@ -1108,13 +1172,14 @@ s.label(ab1mainFD$l2)
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-42-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_FD.png">
 <figcaption>
+  Figure 5. To view the position of host species in the FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+</figcaption>
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
 
+``` r
 # Percentange of variation explained by each axes: most of the variation
 # is reflected by the first axis:
 ab1mainFD$eig[1:2]/sum(ab1mainFD$eig)
@@ -1143,13 +1208,13 @@ s.label(ab1mainFD$l2)
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-43-1.png">
+<img src="<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_PPD.png">
 <figcaption>
+  Figure 6. To view the position of host species in the PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
 
+``` r
 # Percentange of variation explained by each axes:
 ab1mainPD$eig[1:2]/sum(ab1mainPD$eig)
 ```
@@ -1163,6 +1228,7 @@ ab1mainPD$eig[1:2]/sum(ab1mainPD$eig)
 
     ##        SSW        SSA        SSB       SSAB        SST 
     ##  56.345906  20.649526   1.447008  21.557561 100.000000
+
 
 ### crossed-DPCoA version 1
 
@@ -1181,13 +1247,12 @@ s.class(a1v1$l3, h1data$host.species,
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-44-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv1_TD.png">
 <figcaption>
+  Figure 7. Position of all communities (host individuals) in the crossed-DPCoA version 1 TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-```
+
 
 -   crossed-DPCoA FD
 
@@ -1202,13 +1267,12 @@ s.class(a1v1FD$l3, h1data$host.species,
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-45-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv1_FD.png">
 <figcaption>
+  Figure 8. Position of all communities (host individuals) in the crossed-DPCoA version 1 FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-```
+
 
 -   crossed-DPCoA PPD
 
@@ -1223,13 +1287,12 @@ s.class(a1v1PD$l3, h1data$host.species,
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-46-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv1_PPD.png">
 <figcaption>
+  Figure 9. Position of all communities (host individuals) in the crossed-DPCoA version 1 PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-```
+
 
 ### crossed-DPCoA version 2
 
@@ -1246,13 +1309,11 @@ s.class(a1v2$l3, h1data$host.species,
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-47-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv2_TD.png">
 <figcaption>
+  Figure 10. Position of all communities (host individuals) in the crossed-DPCoA version 2 TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-```
 
 -   crossed-DPCoA FD
 
@@ -1267,13 +1328,11 @@ s.class(a1v2FD$l3, h1data$host.species,
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-48-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv2_FD.png">
 <figcaption>
+  Figure 11. Position of all communities (host individuals) in the crossed-DPCoA version 2 FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
 </figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-```
 
 -   crossed-DPCoA PPD
 
@@ -1288,10 +1347,7 @@ s.class(a1v2PD$l3, h1data$host.species,
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-49-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv2_PPD.png">
 <figcaption>
-</figcaption>
+  Figure 12. Position of all communities (host individuals) in the crossed-DPCoA version 2 PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.</figcaption>
 </figure>
-``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-```
