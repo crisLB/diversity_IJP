@@ -562,11 +562,13 @@ summary(alphaPD1_s4_stpairwise, confidence = 0.95, test.type = "dist",
     ## Mc 0.001 0.001 1.000
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-26-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/Fig1.png">
 <figcaption>
-Figure 1. Parasite a diversity in terms of taxonomy (TD), functional traits (FD) and a proxy of the phylogeny (PPD) for each host individual of each fish species. Different lowercase letters indicate significant differences between host species
-</figcaption>
+  Figure 1. Parasite a diversity in terms of taxonomy (TD), functional traits (FD) and a proxy of the phylogeny (PPD) for each host individual of each fish species. Different lowercase letters indicate significant differences between host species.
+  </figcaption>
 </figure>
+
+
 ### β diversity analyses
 
 #### Case 1 sample autumn 2004
