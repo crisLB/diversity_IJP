@@ -1061,10 +1061,13 @@ s.label(ab1main$l2)
 ```
 
 <figure>
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-41-1.png">
+<img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_TD.png">
 <figcaption>
+  Figure 4. To view the position of host species in the TD space. Ca: *Chelon auratus*; Mc: _Mugil cephalus_; Cr: _Chelon ramada_ .
 </figcaption>
 </figure>
+
+
 ``` r
 # Percentange of variation explained by each axes: most of the variation is
 # reflected by the first axis:
@@ -1074,10 +1077,9 @@ ab1main$eig[1:2]/sum(ab1main$eig)
     ## [1] 0.8508505 0.1491495
 
 ``` r
-# Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada
-
 # Percentage of diversity associated with each factor:
 (ab1main$div*100)/ab1main$div[5]
+
 ```
 
     ##        SSW        SSA        SSB       SSAB        SST 
