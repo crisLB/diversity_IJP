@@ -73,7 +73,7 @@ q_bmas1<-data.frame(bmas=traits1[,4], row.names = row.names(traits1))
 n_lcyc1<-data.frame(lcyc=traits1[,5], row.names = row.names(traits1))
 ```
 
-Then, we have to create a ktab object. It is a list of objects, each belonging to the class data.frame (see Supplementary Material in Pavoine et al., 2009, <https://doi.org/10.1111/j.1600-0706.2008.16668.x>). We calculate Gower distances between parasite species in terms of functional traits. Notice that the type of functional trait must be especified (i.e. Q: ordinal; N: nominal). Finally, following Pavoine et al. (2009), we transform the Gower distances into Euclidean distances and rescale them between 0 and 1.
+Then, we have to create a ktab object. It is a list of objects, each belonging to the class data.frame (see Supplementary Material in Pavoine et al., 2009, <https://doi.org/10.1111/j.1600-0706.2008.16668.x>). We calculate Gower distances between parasite species in terms of functional traits. Notice that the type of functional trait must be especified (i.e. Q: quantitative; N: nominal). Finally, following Pavoine et al. (2009), we transform the Gower distances into Euclidean distances and rescale them between 0 and 1.
 
 ``` r
 ktab1<-ktab.list.df(list(q_esiz1, q_enum1, q_bmas1, n_atta1, n_lcyc1))
