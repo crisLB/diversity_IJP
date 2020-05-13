@@ -1127,7 +1127,7 @@ s.label(ab1main$l2)
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_TD.png">
 <figcaption>
-  Figure 4. To view the position of host species in the TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 4. To view the position of host species in the TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1174,7 +1174,7 @@ s.label(ab1mainFD$l2)
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_FD.png">
 <figcaption>
-  Figure 5. To view the position of host species in the FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 5. To view the position of host species in the FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figcaption>
 </figure>
@@ -1210,7 +1210,7 @@ s.label(ab1mainFD$l2)
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoA_PPD.png">
 <figcaption>
-  Figure 6. To view the position of host species in the PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 6. To view the position of host species in the PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1249,7 +1249,7 @@ s.class(a1v1$l3, h1data$host.species,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv1_TD.png">
 <figcaption>
-  Figure 7. Position of all communities (host individuals) in the crossed-DPCoA version 1 TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 7. Position of all communities (host individuals) in the crossed-DPCoA version 1 TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1269,7 +1269,7 @@ s.class(a1v1FD$l3, h1data$host.species,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv1_FD.png">
 <figcaption>
-  Figure 8. Position of all communities (host individuals) in the crossed-DPCoA version 1 FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 8. Position of all communities (host individuals) in the crossed-DPCoA version 1 FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1289,7 +1289,7 @@ s.class(a1v1PD$l3, h1data$host.species,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv1_PPD.png">
 <figcaption>
-  Figure 9. Position of all communities (host individuals) in the crossed-DPCoA version 1 PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 9. Position of all communities (host individuals) in the crossed-DPCoA version 1 PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1298,7 +1298,7 @@ s.class(a1v1PD$l3, h1data$host.species,
 
 Finally, the second version of the crossed-DPCoA eliminates any influence of the factor B on the factor A (including the interaction term). Thus, it provides diversity exclusively under the light of the main crossed-factor, factor A (host species).
 
--   crossed-DPCoATD
+-   crossed-DPCoA TD
 
 ``` r
 a1v2 <- crossdpcoa_version2(host1, h1data$host.species, as.factor(h1data$year),
@@ -1313,7 +1313,7 @@ s.class(a1v2$l3, h1data$host.species,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv2_TD.png">
 <figcaption>
-  Figure 10. Position of all communities (host individuals) in the crossed-DPCoA version 2 TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 10. Position of all communities (host individuals) in the crossed-DPCoA version 2 TD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1332,7 +1332,7 @@ s.class(a1v2FD$l3, h1data$host.species,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv2_FD.png">
 <figcaption>
-  Figure 11. Position of all communities (host individuals) in the crossed-DPCoA version 2 FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.
+  Figure 11. Position of all communities (host individuals) in the crossed-DPCoA version 2 FD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.
 </figcaption>
 </figure>
 
@@ -1351,5 +1351,5 @@ s.class(a1v2PD$l3, h1data$host.species,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/crossedDPCoAv2_PPD.png">
 <figcaption>
-  Figure 12. Position of all communities (host individuals) in the crossed-DPCoA version 2 PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides de scale.</figcaption>
+  Figure 12. Position of all communities (host individuals) in the crossed-DPCoA version 2 PPD space. Ca: Chelon auratus; Mc: Mugil cephalus; Cr: Chelon ramada. d (top-right) provides the scale.</figcaption>
 </figure>
