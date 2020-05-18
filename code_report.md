@@ -20,7 +20,7 @@ Set a working directory
 This is an optional step. Researchers could be interested in saving data and results in the same folder, the working directory. If data is stored in the working directory they will call data everytime with the name of the file and it will not be necessary to write the path to a file anymore.
 
 ``` r
-setwd("C:/Users/Cristina/Documents/diversity_code")
+setwd("path_to_the_directory")
 ```
 
 Databases Case 1
