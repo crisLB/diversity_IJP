@@ -874,11 +874,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s2,
 ```
 
 <figure>
-<img src="https://github.com/crisLB/diversity/blob/master/figures/fig2.png">
-<figcaption>
-  Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (Chelon auratus, Mugil cephalus and Chelon ramada). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
-</figcaption>
-</figure>
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig2.png" /> Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (Chelon auratus, Mugil cephalus and Chelon ramada). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 #### Case 1 sample autumn 2005
 
@@ -1100,7 +1096,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s4,
       layout = c(3, 2))
 ```
 
-<img src="https://github.com/crisLB/diversity/blob/master/figures/fig2.png" /> Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (*Chelon auratus*, *Mugil cephalus* and *Chelon ramada*). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig3.png" /> Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (*Chelon auratus*, *Mugil cephalus* and *Chelon ramada*). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 Influence of two-crossed factors on diversity
 ---------------------------------------------
@@ -1122,7 +1118,7 @@ ab1main<- crossdpcoa_maineffect(host1, h1data$host.species,
 s.label(ab1main$l2)
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /> Figure 4. Position of host species in the TD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig4.png" /> Figure 4. Position of host species in the TD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 ``` r
 # Percentage of variation explained by each axis: most of the variation is
@@ -1162,7 +1158,7 @@ ab1mainFD<-crossdpcoa_maineffect(host1, h1data$host.species,
 s.label(ab1mainFD$l2)
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /> Figure 5. Position of host species in the FD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig5.png" /> Figure 5. Position of host species in the FD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 ``` r
 # Percentage of variation explained by each axis: most of the variation
@@ -1192,7 +1188,7 @@ ab1mainPD<- crossdpcoa_maineffect(host1, h1data$host.species,
 s.label(ab1mainFD$l2)
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /> Figure 6. Position of host species in the PPD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig6.png" /> Figure 6. Position of host species in the PPD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 ``` r
 # Percentage of variation explained by each axis:
@@ -1225,7 +1221,7 @@ s.class(a1v1$l3, h1data$host.species,
         col=c("indianred", "darkgoldenrod1", "cadetblue3"))
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-48-1.png" style="display: block; margin: auto;" /> Figure 7. Position of all communities (host individuals) in the crossed-DPCoA version 1 TD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig7.png" /> Figure 7. Position of all communities (host individuals) in the crossed-DPCoA version 1 TD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 -   crossed-DPCoA FD
 
@@ -1239,7 +1235,7 @@ s.class(a1v1FD$l3, h1data$host.species,
         col=c("indianred", "darkgoldenrod1", "cadetblue3"))
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /> Figure 8. Position of all communities (host individuals) in the crossed-DPCoA version 1 FD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig8.png" /> Figure 8. Position of all communities (host individuals) in the crossed-DPCoA version 1 FD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 -   crossed-DPCoA PPD
 
@@ -1253,7 +1249,7 @@ s.class(a1v1PD$l3, h1data$host.species,
         col=c("indianred", "darkgoldenrod1", "cadetblue3"))
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /> Figure 9. Position of all communities (host individuals) in the crossed-DPCoA version 1 PPD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig9.png" /> Figure 9. Position of all communities (host individuals) in the crossed-DPCoA version 1 PPD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 ### crossed-DPCoA version 2
 
@@ -1271,7 +1267,7 @@ s.class(a1v2$l3, h1data$host.species,
         col=c("indianred", "darkgoldenrod1", "cadetblue3"))
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /> Figure 10. Position of all communities (host individuals) in the crossed-DPCoA version 2 TD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig10.png" /> Figure 10. Position of all communities (host individuals) in the crossed-DPCoA version 2 TD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 -   crossed-DPCoA FD
 
@@ -1285,7 +1281,7 @@ s.class(a1v2FD$l3, h1data$host.species,
         col=c("indianred", "darkgoldenrod1", "cadetblue3")) 
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-52-1.png" style="display: block; margin: auto;" /> Figure 11. Position of all communities (host individuals) in the crossed-DPCoA version 2 FD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig11.png" /> Figure 11. Position of all communities (host individuals) in the crossed-DPCoA version 2 FD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
 
 -   crossed-DPCoA PPD
 
@@ -1299,4 +1295,4 @@ s.class(a1v2PD$l3, h1data$host.species,
         col=c("indianred", "darkgoldenrod1", "cadetblue3"))
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-53-1.png" style="display: block; margin: auto;" /> Figure 12. Position of all communities (host individuals) in the crossed-DPCoA version 2 PPD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig12.png" /> Figure 12. Position of all communities (host individuals) in the crossed-DPCoA version 2 PPD space. Ca: *Chelon auratus*; Mc: *Mugil cephalus*; Cr: *Chelon ramada*. d (top-right) provides the scale (length of a square side in the grey grid).
