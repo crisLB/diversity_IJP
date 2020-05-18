@@ -876,7 +876,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s2,
 <figure>
 <img src="https://github.com/crisLB/diversity/blob/master/figures/fig2.png">
 <figcaption>
-  Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (_Chelon auratus_, Mugil cephalus and Chelon ramada). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
+  Figure 2. Observed and simulated β diversity values (Case 1: autumn 2004). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (Chelon auratus, Mugil cephalus and Chelon ramada). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2004 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 </figcaption>
 </figure>
 
@@ -1100,7 +1100,7 @@ ADEgS(c(plot(eqrao1TDbeta1rt_s4,
       layout = c(3, 2))
 ```
 
-<img src="code_diversity_report_20200513_files/figure-markdown_github/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /> Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (*Chelon auratus*, *Mugil cephalus* and *Chelon ramada*). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
+<img src="https://github.com/crisLB/diversity/blob/master/figures/fig2.png" /> Figure 3. Observed and simulated β diversity values (Case 1: autumn 2005). (a, b, c) β1 diversity or extent of dissimilarity in the diversity of parasite communities among host individuals within each host species (*Chelon auratus*, *Mugil cephalus* and *Chelon ramada*). (d, e, f) β2 diversity or extent of dissimilarity in the diversity of parasite communities between host species. Diversity was measured in terms of (a, d) Taxonomic Diversity (TD), (b, e) Functional Diversity (FD) and (c, f) the Proxy of Phylogenetic Diversity (PPD). Samples are from Santa Pola Lagoon and autumn 2005 (Case 1). Observed β values (black diamond on the top of the black vertical line) and distribution of the simulated (x-axis: sim) β values (grey bars).
 
 Influence of two-crossed factors on diversity
 ---------------------------------------------
