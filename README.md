@@ -17,3 +17,6 @@
 
 <p>REFERENCE</p>
 <p>Llopis-Belenguer, C., Pavoine, S., Blasco-Costa, I., Antonio Balbuena, J., 2020. Assembly rules of helminth parasite communities in grey mullets: combining components of diversity. International Journal for Parasitology. https://doi.org/10.1016/j.ijpara.2020.06.006 </p>
+<p>CITATION</p>
+<p>Cite this data and/ or code as:</p>
+<p>Llopis-Belenguer, Cristina, Pavoine, Sandrine, Blasco-Costa, Isabel, & Balbuena, Juan Antonio. (2020). Code and data for Assembly rules of helminth parasite communities in grey mullets: combining components of diversity (Version v1.0.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3970614</p>
