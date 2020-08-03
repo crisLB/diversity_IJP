@@ -15,5 +15,5 @@
 
 <p>Note: Regarding the prevalence analysis, the number of host individuals in 3CSPS was 23. However, the number of host individuals in 3CSPS in Case 2 (see main text) was 22 because the host 3CSPS23 did not harbour parasites and it was excluded from the diversity analysis.</p>
 
-<p>REFERENCE
-Llopis-Belenguer, C., Pavoine, S., Blasco-Costa, I., Antonio Balbuena, J., 2020. Assembly rules of helminth parasite communities in grey mullets: combining components of diversity. International Journal for Parasitology. https://doi.org/10.1016/j.ijpara.2020.06.006 </p>
+<p>REFERENCE</p>
+<p>Llopis-Belenguer, C., Pavoine, S., Blasco-Costa, I., Antonio Balbuena, J., 2020. Assembly rules of helminth parasite communities in grey mullets: combining components of diversity. International Journal for Parasitology. https://doi.org/10.1016/j.ijpara.2020.06.006 </p>
